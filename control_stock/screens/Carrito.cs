@@ -41,7 +41,10 @@ namespace control_stock
             for (int i = 0; i < productos.Count; i++)
             {
                 ProductoDTO producto = productos[i];
-                lista.Add(producto.Descripcion.ToString());
+                if (producto.Stock > 0)
+                {
+                    lista.Add(producto.Descripcion.ToString());
+                }
             } 
             textBox1.AutoCompleteCustomSource = lista;
             textBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -55,14 +58,18 @@ namespace control_stock
             for(int i=0; i< productos.Count(); i++)
             {
                 ProductoDTO producto = productos[i];
-                if(productos[i].Descripcion.ToString() == texto)
+                if(productos[i].Descripcion.ToString().Trim() == texto.Trim())
                 {
 
                     Boolean response = verficarSiExisteProducto(producto.Id.ToString());
+                    Boolean unidadesValidas = true;
                     if (response)
                     {
                         
-                        int unidades = eliminarElemento(producto.Id.ToString()) + 1;
+                        int unidades = eliminarElemento(producto.Id.ToString());
+                        unidadesValidas = validarUnidadesExistentes(producto.Stock, unidades);
+                        unidades = (unidadesValidas == true) ? unidades + 1 : unidades;
+                        
                         ListViewItem fila = new ListViewItem(producto.Id.ToString());
                         fila.SubItems.Add(producto.Descripcion);
                         fila.SubItems.Add(unidades.ToString());
@@ -75,12 +82,25 @@ namespace control_stock
                         fila.SubItems.Add("1");
                         listView1.Items.Add(fila);
                     }
-                    total += obtenerPrecioProducto(producto.Id);
-                    label4.Text = total.ToString();
+                    if (unidadesValidas)
+                    {
+                        total += obtenerPrecioProducto(producto.Id);
+                        label4.Text = "$" + total.ToString();
+                    }
+                    else
+                    {
+                        generadorDeMensajes.generarMensaje("La cantidad de unidades seleccionadas supera el stock de este producto. ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                 }
             }
             
 
+        }
+        private Boolean validarUnidadesExistentes(int stock, int unidades)
+        {
+            if(stock - unidades == 0) { return false; }
+            return true;
         }
         private int eliminarElemento(string productoId) 
         {
@@ -153,10 +173,31 @@ namespace control_stock
 
                 if (response == DialogResult.OK)
                 {
+                    productoService.update(cargarListaParaActualizarStock());
                     generadorDeMensajes.generarMensaje("Operacion exitosa, se ha actualizado el stock", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }    
         }
+        private List<ProductoDTO> cargarListaParaActualizarStock()
+        {
+            List<ProductoDTO> lista = new List<ProductoDTO>();
+            for (int x = 0; x < listView1.Items.Count; x++)
+            {
+                ListViewItem item = listView1.Items[x];
+                for (int i=0; i < productos.Count(); i++)
+                {
+                    ProductoDTO producto = productos[i];
+                    if(item.SubItems[0].Text.Trim() == producto.Id.ToString().Trim())
+                    {
+                        producto.Stock = producto.Stock - int.Parse(item.SubItems[2].Text);
+                        lista.Add(producto);
+                    }
+                }
+
+            }
+            return lista;
+        }
+
     }
 }

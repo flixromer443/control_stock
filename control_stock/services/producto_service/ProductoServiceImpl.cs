@@ -64,9 +64,30 @@ namespace control_stock.services.producto_service
             command.ExecuteNonQuery();
 
             connection.Close();
+        }
+        public void update(List<ProductoDTO> productosDTO)
+        {
+            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteCommand command = connection.CreateCommand();
+            connection.Open();
+            for(int i = 0; i<productosDTO.Count(); i++)
+            {
+                ProductoDTO productoDTO = productosDTO[i];
+                command.CommandText = "UPDATE productos SET categoria_id = @CATEGORIA_ID,  descripcion = @DESCRIPCION, precio_compra = @PRECIO_COMPRA, precio_venta = @PRECIO_VENTA, stock = @STOCK WHERE id = @ID ";
+                command.Parameters.Add(new SQLiteParameter("@ID", productoDTO.Id));
+                command.Parameters.Add(new SQLiteParameter("@CATEGORIA_ID", productoDTO.CategoriaId));
+                command.Parameters.Add(new SQLiteParameter("@DESCRIPCION", productoDTO.Descripcion));
+                command.Parameters.Add(new SQLiteParameter("@PRECIO_COMPRA", productoDTO.PrecioCompra));
+                command.Parameters.Add(new SQLiteParameter("@PRECIO_VENTA", productoDTO.PrecioVenta));
+                command.Parameters.Add(new SQLiteParameter("@STOCK", productoDTO.Stock));
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
 
 
         }
+
+
         public void updateStockProducto(int productoId, int unidades)
         {
             SQLiteConnection connection = new SQLiteConnection(datasource);
@@ -97,29 +118,24 @@ namespace control_stock.services.producto_service
         public List<ProductoDTO> findByCategoriaId(int categoriaId)
         {
             List<ProductoDTO> productos = new List<ProductoDTO>();
-            int i = 0;
-
             SQLiteConnection connection = new SQLiteConnection(datasource);
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
+
             command.CommandText = "SELECT * FROM productos WHERE categoria_id =@CATEGORIA_ID";
             command.Parameters.Add(new SQLiteParameter("CATEGORIA_ID", categoriaId));
             
             SQLiteDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                if (!dataReader.IsDBNull(i))
-                {
-                    ProductoDTO productoDTO = new ProductoDTO();
-                    productoDTO.Id = (int)(long) dataReader[0];
-                    productoDTO.CategoriaId = (int)(long) dataReader[1];
-                    productoDTO.Descripcion = (string) dataReader[2];
-                    productoDTO.PrecioCompra = (string) dataReader[3];
-                    productoDTO.PrecioVenta = (string) dataReader[4];
-                    productoDTO.Stock = (int)(long) dataReader[5];
-                    productos.Add(productoDTO);
-                }
-                i++;
+                ProductoDTO productoDTO = new ProductoDTO();
+                productoDTO.Id = (int)(long)dataReader[0];
+                productoDTO.CategoriaId = (int)(long)dataReader[1];
+                productoDTO.Descripcion = (string)dataReader[2];
+                productoDTO.PrecioCompra = (string)dataReader[3];
+                productoDTO.PrecioVenta = (string)dataReader[4];
+                productoDTO.Stock = (int)(long)dataReader[5];
+                productos.Add(productoDTO);
             } 
             connection.Close();
             return productos;
@@ -127,8 +143,6 @@ namespace control_stock.services.producto_service
 
         public ProductoDTO findById(int productoId)
         {
-            int i = 0;
-
             SQLiteConnection connection = new SQLiteConnection(datasource);
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
@@ -138,94 +152,43 @@ namespace control_stock.services.producto_service
             SQLiteDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                if (!dataReader.IsDBNull(i))
-                {
-                    ProductoDTO productoDTO = new ProductoDTO();
-                    productoDTO.Id = (int)(long)dataReader[0];
-                    productoDTO.CategoriaId = (int)(long)dataReader[1];
-                    productoDTO.Descripcion = (string)dataReader[2];
-                    productoDTO.PrecioCompra = (string)dataReader[3];
-                    productoDTO.PrecioVenta = (string)dataReader[4];
-                    productoDTO.Stock = (int)(long)dataReader[5];
-                    connection.Close();
-                    return productoDTO;
-                }
-                i++;
+                ProductoDTO productoDTO = new ProductoDTO();
+                productoDTO.Id = (int)(long)dataReader[0];
+                productoDTO.CategoriaId = (int)(long)dataReader[1];
+                productoDTO.Descripcion = (string)dataReader[2];
+                productoDTO.PrecioCompra = (string)dataReader[3];
+                productoDTO.PrecioVenta = (string)dataReader[4];
+                productoDTO.Stock = (int)(long)dataReader[5];
+                connection.Close();
+                return productoDTO;
             }
             connection.Close();
             return new ProductoDTO();
         }
         
-        
-        
-
-
-
-
-
-
-
-
-
-
         public List<ProductoDTO> findAll()
         {
             SQLiteConnection connection = new SQLiteConnection(datasource);
             SQLiteCommand command = connection.CreateCommand();
+            
             connection.Open();
             command.CommandText = "SELECT * FROM productos";
+            
             SQLiteDataReader dataReader = command.ExecuteReader();
-
             List<ProductoDTO> productos = new List<ProductoDTO>();
-            int i = 0;
             while (dataReader.Read())
             {
-                if (!dataReader.IsDBNull(i))
-                {
-                    ProductoDTO productoDTO = new ProductoDTO();
-                    productoDTO.Id = (int)(long)dataReader[0];
-                    productoDTO.CategoriaId = (int)(long)dataReader[1];
-                    productoDTO.Descripcion = (string)dataReader[2];
-                    productoDTO.PrecioCompra = (string)dataReader[3];
-                    productoDTO.PrecioVenta = (string)dataReader[4];
-                    productoDTO.Stock = (int)(long)dataReader[5];
-                    productos.Add(productoDTO);                   
-                }
-                i++;
+                ProductoDTO productoDTO = new ProductoDTO();
+                productoDTO.Id = (int)(long)dataReader[0];
+                productoDTO.CategoriaId = (int)(long)dataReader[1];
+                productoDTO.Descripcion = (string)dataReader[2];
+                productoDTO.PrecioCompra = (string)dataReader[3];
+                productoDTO.PrecioVenta = (string)dataReader[4];
+                productoDTO.Stock = (int)(long)dataReader[5];
+                productos.Add(productoDTO);
             }
             connection.Close();
             return productos;
-
-
-            /*try
-            {
-                List<ProductoDTO> productos = new List<ProductoDTO>();
-                StreamReader archivo = new StreamReader(ruta);
-
-                while (!archivo.EndOfStream)
-                {
-                    string linea = archivo.ReadLine();
-                    string[] producto = linea.Split(",");
-                    ProductoDTO productoDTO = new ProductoDTO();
-                    productoDTO.Id = int.Parse(producto[0]);
-                    productoDTO.CategoriaId = int.Parse(producto[1]);
-                    productoDTO.Descripcion = producto[2];
-                    productoDTO.PrecioCompra = producto[3];
-                    productoDTO.PrecioVenta = producto[4];
-                    productoDTO.Stock = int.Parse(producto[5]);
-
-                    productos.Add(productoDTO);
-
-                }
-                archivo.Close();
-                return productos;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-
-            }
-            return new List<ProductoDTO>();*/
         }
 
         private String productoDTOToString(ProductoDTO productoDTO)
