@@ -52,8 +52,12 @@
             this.abrirCarritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirCarritoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +65,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Ink Free", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(315, 64);
+            this.label1.Location = new System.Drawing.Point(352, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(328, 87);
             this.label1.TabIndex = 6;
@@ -69,6 +73,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -101,7 +106,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(917, 345);
+            this.dataGridView1.Size = new System.Drawing.Size(1064, 345);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -143,7 +148,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.Location = new System.Drawing.Point(411, 234);
+            this.button1.Location = new System.Drawing.Point(485, 234);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(237, 44);
             this.button1.TabIndex = 16;
@@ -155,7 +160,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(118, 234);
+            this.button2.Location = new System.Drawing.Point(160, 234);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(237, 44);
             this.button2.TabIndex = 18;
@@ -167,7 +172,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Crimson;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(716, 234);
+            this.button3.Location = new System.Drawing.Point(815, 234);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(236, 44);
             this.button3.TabIndex = 19;
@@ -180,17 +185,18 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(69, 385);
+            this.label7.Location = new System.Drawing.Point(149, 382);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(295, 70);
             this.label7.TabIndex = 20;
             this.label7.Text = "PRODUCTOS";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(280, 829);
+            this.label9.Location = new System.Drawing.Point(352, 827);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(505, 25);
             this.label9.TabIndex = 22;
@@ -201,7 +207,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe Print", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(69, 161);
+            this.label8.Location = new System.Drawing.Point(149, 143);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(335, 70);
             this.label8.TabIndex = 21;
@@ -211,7 +217,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Coral;
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(118, 312);
+            this.button4.Location = new System.Drawing.Point(160, 312);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(236, 44);
             this.button4.TabIndex = 23;
@@ -223,7 +229,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.DarkGreen;
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(412, 312);
+            this.button5.Location = new System.Drawing.Point(485, 312);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(236, 44);
             this.button5.TabIndex = 24;
@@ -235,7 +241,7 @@
             // 
             this.button6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(716, 312);
+            this.button6.Location = new System.Drawing.Point(815, 312);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(236, 44);
             this.button6.TabIndex = 25;
@@ -250,7 +256,7 @@
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1059, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1213, 33);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -265,7 +271,7 @@
             // abrirCarritoToolStripMenuItem1
             // 
             this.abrirCarritoToolStripMenuItem1.Name = "abrirCarritoToolStripMenuItem1";
-            this.abrirCarritoToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.abrirCarritoToolStripMenuItem1.Size = new System.Drawing.Size(208, 34);
             this.abrirCarritoToolStripMenuItem1.Text = "Abrir carrito";
             this.abrirCarritoToolStripMenuItem1.Click += new System.EventHandler(this.abrirCarritoToolStripMenuItem1_Click);
             // 
@@ -275,12 +281,34 @@
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(79, 143);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(74, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(79, 378);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(74, 74);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
             // categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkViolet;
-            this.ClientSize = new System.Drawing.Size(1059, 873);
+            this.ClientSize = new System.Drawing.Size(1213, 873);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -301,6 +329,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +358,7 @@
         private ToolStripMenuItem abrirCarritoToolStripMenuItem;
         private ToolStripMenuItem abrirCarritoToolStripMenuItem1;
         private ToolStripMenuItem ayudaToolStripMenuItem;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

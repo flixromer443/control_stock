@@ -194,6 +194,12 @@ namespace control_stock
         {
             Carrito carrito = new Carrito();
             carrito.ShowDialog();
+            refrescarDataGridView(productoService.findByCategoriaId(CategoriaId));
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
