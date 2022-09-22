@@ -100,7 +100,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "producto";
-            this.columnHeader2.Width = 360;
+            this.columnHeader2.Width = 350;
             // 
             // columnHeader3
             // 

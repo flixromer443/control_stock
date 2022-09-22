@@ -71,6 +71,7 @@ namespace control_stock
                         unidades = (unidadesValidas == true) ? unidades + 1 : unidades;
                         
                         ListViewItem fila = new ListViewItem(producto.Id.ToString());
+                        fila.BackColor = Color.WhiteSmoke;
                         fila.SubItems.Add(producto.Descripcion);
                         fila.SubItems.Add(unidades.ToString());
                         listView1.Items.Add(fila);
@@ -78,6 +79,7 @@ namespace control_stock
                     else
                     {
                         ListViewItem fila = new ListViewItem(producto.Id.ToString());
+                        fila.BackColor = Color.WhiteSmoke;
                         fila.SubItems.Add(producto.Descripcion);
                         fila.SubItems.Add("1");
                         listView1.Items.Add(fila);
