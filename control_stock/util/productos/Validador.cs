@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace control_stock.util
+namespace control_stock.util.productos
 {
     internal class Validador
     {
-        public static Boolean validarProducto(ProductoDTO productoDTO)
+        public static bool validarProducto(ProductoDTO productoDTO)
         {
             if (validarCamposProducto(productoDTO) == true || validarCadenas(productoDTO) == true)
             {
@@ -18,9 +18,9 @@ namespace control_stock.util
             return false;
         }
 
-        public static Boolean validarCamposProducto(ProductoDTO nuevoProducto)
+        public static bool validarCamposProducto(ProductoDTO nuevoProducto)
         {
-            GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+            GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
             if (nuevoProducto.Descripcion == null || nuevoProducto.Descripcion.Length == 0)
             {
                 generadorDeMensajes.generarError(Mensajes.ERROR_DESCRIPCION);
@@ -44,9 +44,9 @@ namespace control_stock.util
             return false;
         }
 
-        public static Boolean validarCadenas(ProductoDTO productoDTO)
+        public static bool validarCadenas(ProductoDTO productoDTO)
         {
-            GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+            GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
 
             if (validarCadena(productoDTO.Descripcion) == true)
             {
@@ -98,7 +98,7 @@ namespace control_stock.util
 
         }
 
-        private static Boolean validarCadena(string cadena)
+        private static bool validarCadena(string cadena)
         {
             string caracteresEspeciales = "=°#$%@!¡¿?<>{}[]&*+_-;,";
             for (int i = 0; i < cadena.Length; i++)
@@ -114,12 +114,12 @@ namespace control_stock.util
             return false;
         }
 
-        private static Boolean validarNumero(string cadena)
+        private static bool validarNumero(string cadena)
         {
             string numeros = "0123456789";
             for (int i = 0; i < cadena.Length; i++)
             {
-                Boolean found = false;
+                bool found = false;
                 for (int x = 0; x < numeros.Length && found == false; x++)
                 {
                     if (numeros[x].ToString() == cadena[i].ToString())

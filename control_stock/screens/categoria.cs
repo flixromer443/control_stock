@@ -20,7 +20,7 @@ namespace control_stock
         private string categoriaNombre;
         
         private ProductoDTO productoSeleccionado = new ProductoDTO();
-        private GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+        private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductosUtil productosUtil = new ProductosUtil();
 
         private readonly ProductoServiceImpl productoService = new ProductoServiceImpl();

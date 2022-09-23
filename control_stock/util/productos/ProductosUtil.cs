@@ -9,7 +9,7 @@ namespace control_stock.util
 {
     internal class ProductosUtil
     {
-        private GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+        private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         public Boolean validarProductoSeleccionado(ProductoDTO nuevoProducto)
         {
 

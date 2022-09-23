@@ -1,6 +1,7 @@
 ﻿using control_stock.DTO;
 using control_stock.services.producto_service;
 using control_stock.util;
+using control_stock.util.productos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace control_stock
     {
         private ProductoDTO productoSeleccionado;
         private ProductoServiceImpl productoService = new ProductoServiceImpl();
-        private GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+        private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductosUtil productosUtil = new ProductosUtil();
 
         public ActualizarProducto()

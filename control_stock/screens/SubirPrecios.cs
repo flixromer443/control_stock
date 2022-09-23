@@ -53,7 +53,7 @@ namespace control_stock
         {
             if(indiceDeAumento > 0)
             {
-                GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+                GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
                 string mensaje = "Desea aumentar un " + indiceDeAumento + "% el precio de venta de todos los productos de esta categoria?";
                 DialogResult response = generadorDeMensajes.generarMensaje(mensaje, MessageBoxIcon.Warning);
                 if (response == DialogResult.OK)
