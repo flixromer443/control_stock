@@ -20,16 +20,6 @@ namespace control_stock.DTO
         {
         }
 
-        public ProductoDTO(int id,int categoriaId, string descripcion, string precioCompra, string precioVenta, int stock)
-        {
-            this.id = id;
-            this.categoriaId = categoriaId;
-            this.descripcion = descripcion;
-            this.precioCompra = precioCompra;
-            this.precioVenta = precioVenta;
-            this.stock = stock;
-        }
-
         public int Id { get => id; set => id = value; }
         public int CategoriaId { get => categoriaId; set => categoriaId = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
