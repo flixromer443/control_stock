@@ -17,7 +17,7 @@ namespace control_stock
     public partial class ActualizarProducto : Form
     {
         private ProductoDTO productoSeleccionado;
-        private ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private ProductoDAOImpl productoService = new ProductoDAOImpl();
         private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductosUtil productosUtil = new ProductosUtil();
 

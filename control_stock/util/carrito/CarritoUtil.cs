@@ -65,6 +65,21 @@ namespace control_stock.util.carrito
             if (stock - unidades == 0) { return false; }
             return true;
         }
+         private string calcularGanancia(string precioVenta, string precioCompra, int stock)
+        {
+
+            int primerMiembro = int.Parse(precioVenta) * stock;
+            int segundoMiembro = int.Parse(precioCompra) * stock;
+            int resultado = primerMiembro - segundoMiembro;
+            
+            return resultado.ToString();
+        }
+        private string[] obtenerFechaYHoraActual()
+        {
+            DateTime fecha = DateTime.Now;
+            string fechaString = fecha.ToString();
+            return fechaString.Split(" ");
+        }
         public List<ProductoDTO> cargarListaParaActualizarStock(ListView listView1, List<ProductoDTO> productos)
         {
             List<ProductoDTO> lista = new List<ProductoDTO>();
@@ -84,6 +99,35 @@ namespace control_stock.util.carrito
             }
             return lista;
         }
-       
+        public List<VentaDTO> cargarListaParaCargarVentas(ListView listView1, List<ProductoDTO> productosDTO)
+        {
+            string[] fechaYhora = obtenerFechaYHoraActual();
+            List<VentaDTO> lista = new List<VentaDTO>();
+            for (int x = 0; x < listView1.Items.Count; x++)
+            {
+                ListViewItem item = listView1.Items[x];
+                for (int i = 0; i < productosDTO.Count(); i++)
+                {
+                    ProductoDTO productoDTO = productosDTO[i];
+                    if (item.SubItems[0].Text.Trim() == productoDTO.Id.ToString().Trim())
+                    {
+                        VentaDTO ventaDTO = new VentaDTO();
+                        productoDTO.Stock = productoDTO.Stock - int.Parse(item.SubItems[2].Text);
+
+                        ventaDTO.Producto_id = productoDTO.Id;
+                        ventaDTO.Descripcion = productoDTO.Descripcion;
+                        ventaDTO.PrecioVenta = productoDTO.PrecioVenta;
+                        ventaDTO.Unidades_vendidas = int.Parse(item.SubItems[2].Text);
+                        ventaDTO.Ganancia = calcularGanancia(productoDTO.PrecioVenta, productoDTO.PrecioCompra, ventaDTO.Unidades_vendidas);
+                        ventaDTO.Fecha = fechaYhora[0];
+                        ventaDTO.Hora = fechaYhora[1];
+                        lista.Add(ventaDTO);
+
+                    }
+                }
+
+            }
+            return lista;
+        }
     }
 }

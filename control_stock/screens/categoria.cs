@@ -23,7 +23,7 @@ namespace control_stock
         private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductosUtil productosUtil = new ProductosUtil();
 
-        private readonly ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private readonly ProductoDAOImpl productoService = new ProductoDAOImpl();
 
         public categoria()
         {
@@ -184,22 +184,11 @@ namespace control_stock
             }
             
         }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void abrirCarritoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Carrito carrito = new Carrito();
             carrito.ShowDialog();
             refrescarDataGridView(productoService.findByCategoriaId(CategoriaId));
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

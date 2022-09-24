@@ -10,7 +10,7 @@ namespace control_stock
         private ProductoDTO productoSeleccionado;
         private int unidadesSeleccionadas = 1;
         private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
-        private ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private ProductoDAOImpl productoService = new ProductoDAOImpl();
         private ProductosUtil productosUtil = new ProductosUtil();
 
         public ProductoDTO ProductoSeleccionado { get => productoSeleccionado; set => productoSeleccionado = value; }

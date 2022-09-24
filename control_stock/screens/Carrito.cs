@@ -1,4 +1,5 @@
-﻿using control_stock.DTO;
+﻿using control_stock.DAO.ventas;
+using control_stock.DTO;
 using control_stock.services.producto_service;
 using control_stock.util;
 using control_stock.util.carrito;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +20,8 @@ namespace control_stock
     {
         List<ProductoDTO> productos = new List<ProductoDTO>();
         private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
-        private ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private ProductoDAOImpl productoService = new ProductoDAOImpl();
+        private VentasDAOImpl ventasService = new VentasDAOImpl();
         private CarritoUtil carritoUtil = new CarritoUtil();
         private int total;
         public Carrito()
@@ -82,13 +85,18 @@ namespace control_stock
 
                 if (response == DialogResult.OK)
                 {
-                    productoService.update(carritoUtil.cargarListaParaActualizarStock(listView1,Productos));
+                    List<ProductoDTO> productosDTO = carritoUtil.cargarListaParaActualizarStock(listView1, Productos);
+                    List<VentaDTO> ventasDTO  = carritoUtil.cargarListaParaCargarVentas(listView1, productosDTO);
+                   
+                    productoService.update(productosDTO);
+                    ventasService.cargarVentas(ventasDTO);
                     generadorDeMensajes.generarMensaje(Mensajes.CARRITO_VENDIDO, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }    
         }
 
+       
 
         //carga el texbox con todos los productos que cuenten con stock
         private void autocompletar()

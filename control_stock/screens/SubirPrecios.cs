@@ -19,7 +19,7 @@ namespace control_stock
         private int indiceDeAumento = 0;
         private int categoriaId;
 
-        private ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private ProductoDAOImpl productoService = new ProductoDAOImpl();
         public SubirPrecios()
         {
             InitializeComponent();
