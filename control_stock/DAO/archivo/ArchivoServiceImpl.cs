@@ -16,7 +16,7 @@ namespace control_stock.services.producto_service
         //DEVUELVE UNA LISTA CON TODOS LOS PRODUCTOS EXCEPTO EL REFERENCIADO EN FORMATO STRING
         public List<string> extraerProductosPorCategoria(int categoriaId)
         {
-            ProductoServiceImpl productoService = new ProductoServiceImpl();
+            ProductoDAOImpl productoService = new ProductoDAOImpl();
             List<ProductoDTO> productosDTO = productoService.findAll();
             List<string> productos = new List<string>();
 
@@ -44,7 +44,7 @@ namespace control_stock.services.producto_service
         //DEVUELVE UNA LISTA CON TODOS LOS PRODUCTOS EN FORMATO STRING
         public List<string> extraerProductos()
         {
-            ProductoServiceImpl productoService = new ProductoServiceImpl();
+            ProductoDAOImpl productoService = new ProductoDAOImpl();
             List<ProductoDTO> productosDTO = productoService.findAll();
             List<string> productos = new List<string>();
 
@@ -68,7 +68,7 @@ namespace control_stock.services.producto_service
         //DEVUELVE UNA LISTA CON TODOS LOS PRODUCTOS EXCEPTO EL REFERENCIADO EN FORMATO STRING
         public List<string> extraerProductoPorId(int productoId)
         {
-            ProductoServiceImpl productoService = new ProductoServiceImpl();
+            ProductoDAOImpl productoService = new ProductoDAOImpl();
             List<ProductoDTO> productosDTO = productoService.findAll();
             List<string> productos = new List<string>();
 

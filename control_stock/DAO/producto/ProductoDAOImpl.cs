@@ -1,4 +1,5 @@
-﻿using control_stock.DTO;
+﻿using control_stock.config;
+using control_stock.DTO;
 using control_stock.services.producto_service;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,14 @@ using System.Windows.Forms;
 
 namespace control_stock.services.producto_service
 {
-    internal class ProductoServiceImpl : ProductoService
+    internal class ProductoDAOImpl : ProductoDAO
     {
-        private const string ruta = "archivos/productos.txt";
-        private static string datasource = "Data Source=control_stockV01.db";
-        //private static string datasource = "Data Source= C:/Users/Felix.DESKTOP-U548A3J/source/repos/control_stock/control_stock/control_stockV01.db";
-
+        
+        private static Conexion conexion = new Conexion();
 
         public void create(ProductoDTO productoDTO)
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
             
             connection.Open();
@@ -38,7 +37,7 @@ namespace control_stock.services.producto_service
 
         public void delete(int productoId)
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
 
             connection.Open();
@@ -50,7 +49,7 @@ namespace control_stock.services.producto_service
 
         public void update(ProductoDTO productoDTO)
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
 
@@ -67,7 +66,7 @@ namespace control_stock.services.producto_service
         }
         public void update(List<ProductoDTO> productosDTO)
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
             for(int i = 0; i<productosDTO.Count(); i++)
@@ -90,7 +89,7 @@ namespace control_stock.services.producto_service
 
         public void updateStockProducto(int productoId, int unidades)
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
 
@@ -118,7 +117,8 @@ namespace control_stock.services.producto_service
         public List<ProductoDTO> findByCategoriaId(int categoriaId)
         {
             List<ProductoDTO> productos = new List<ProductoDTO>();
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
+
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
 
@@ -143,7 +143,7 @@ namespace control_stock.services.producto_service
 
         public ProductoDTO findById(int productoId)
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
             connection.Open();
             command.CommandText = "SELECT * FROM productos WHERE id =@ID";
@@ -168,7 +168,7 @@ namespace control_stock.services.producto_service
         
         public List<ProductoDTO> findAll()
         {
-            SQLiteConnection connection = new SQLiteConnection(datasource);
+            SQLiteConnection connection = conexion.conectar();
             SQLiteCommand command = connection.CreateCommand();
             
             connection.Open();
