@@ -31,9 +31,15 @@ namespace control_stock.util
             }
             return false;
         }
+        //se usa para aumentas precios
         public string reducirCaracteresDescripcion(string descripcion)
         {
             return descripcion.Substring(0, 20) + ".";
+        }
+        //se usa para el generador de reportes
+        public string reducirCaracteresProducto(string descripcion)
+        {
+            return descripcion.Substring(0, 30) + ".";
         }
         public string generarPrecio(string precio)
         {

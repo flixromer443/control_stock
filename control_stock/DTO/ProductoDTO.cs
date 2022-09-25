@@ -26,5 +26,10 @@ namespace control_stock.DTO
         public string PrecioCompra { get => precioCompra; set => precioCompra = value; }
         public string PrecioVenta { get => precioVenta; set => precioVenta = value; }
         public int Stock { get => stock; set => stock = value; }
+
+        public static implicit operator ProductoDTO(bool v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

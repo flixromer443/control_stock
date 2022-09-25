@@ -1,4 +1,5 @@
 ﻿using control_stock.DTO;
+using control_stock.screens;
 using control_stock.services.producto_service;
 using control_stock.util;
 using System;
@@ -189,6 +190,23 @@ namespace control_stock
             Carrito carrito = new Carrito();
             carrito.ShowDialog();
             refrescarDataGridView(productoService.findByCategoriaId(CategoriaId));
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            List<ProductoDTO> productos = productoService.findByCategoriaId(categoriaId);
+            if (productos.Count != 0)
+            {
+                GeneradorDeReportes generadorDeReportes = new GeneradorDeReportes();
+                generadorDeReportes.CategoriaNombre = categoriaNombre;
+                generadorDeReportes.Productos = productos;
+                generadorDeReportes.ShowDialog();
+            }
+            else
+            {
+                generadorDeMensajes.generarMensaje(Mensajes.CATEGORIA_VACIA, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }
