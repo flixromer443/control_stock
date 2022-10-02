@@ -40,7 +40,7 @@ namespace control_stock.util
         public string reducirCaracteresProducto(string descripcion)
         {
             return descripcion.Substring(0, 30) + ".";
-        }
+        }        
         public string generarPrecio(string precio)
         {
             StringBuilder precioVenta = new StringBuilder();
