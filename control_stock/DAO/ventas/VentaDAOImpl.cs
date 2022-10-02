@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace control_stock.DAO.ventas
 {
-    internal class VentasDAOImpl
+    internal class VentaDAOImpl
     {
         private static Conexion conexion = new Conexion();
 
@@ -37,7 +37,6 @@ namespace control_stock.DAO.ventas
 
                 connection.Close();
             }
-            findAll();
 
         }
         private void findAll()
@@ -66,6 +65,37 @@ namespace control_stock.DAO.ventas
                 ventas.Add(ventaDTO);
             }
             connection.Close();
+        }
+
+        public List<VentaDTO> findByFecha(string fecha)
+        {
+            List<VentaDTO> ventas = new List<VentaDTO>();
+            SQLiteConnection connection = conexion.conectar();
+
+            SQLiteCommand command = connection.CreateCommand();
+            connection.Open();
+
+            command.CommandText = "SELECT * FROM ventas WHERE fecha =@FECHA";
+            command.Parameters.Add(new SQLiteParameter("FECHA", fecha));
+
+            SQLiteDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                VentaDTO ventaDTO = new VentaDTO();
+                ventaDTO.Id = (int)(long)dataReader[0];
+                ventaDTO.Producto_id = (int)(long)dataReader[1];
+                ventaDTO.Descripcion = (string)dataReader[2];
+                ventaDTO.PrecioVenta = (string)dataReader[3];
+
+                ventaDTO.Unidades_vendidas = (int)(long)dataReader[4];
+                ventaDTO.Ganancia = (string)dataReader[5];
+                ventaDTO.Fecha = (string)dataReader[6];
+                ventaDTO.Hora = (string)dataReader[7];
+
+                ventas.Add(ventaDTO);
+            }
+            connection.Close();
+            return ventas;
         }
     }
 }
