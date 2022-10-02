@@ -1,4 +1,5 @@
 ﻿using control_stock.DTO;
+using control_stock.util.fecha;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,12 +75,7 @@ namespace control_stock.util.carrito
             
             return resultado.ToString();
         }
-        private string[] obtenerFechaYHoraActual()
-        {
-            DateTime fecha = DateTime.Now;
-            string fechaString = fecha.ToString();
-            return fechaString.Split(" ");
-        }
+
         public List<ProductoDTO> cargarListaParaActualizarStock(ListView listView1, List<ProductoDTO> productos)
         {
             List<ProductoDTO> lista = new List<ProductoDTO>();
@@ -101,7 +97,7 @@ namespace control_stock.util.carrito
         }
         public List<VentaDTO> cargarListaParaCargarVentas(ListView listView1, List<ProductoDTO> productosDTO)
         {
-            string[] fechaYhora = obtenerFechaYHoraActual();
+            string[] fechaYhora = FechaUtil.obtenerFechaYHoraActual();
             List<VentaDTO> lista = new List<VentaDTO>();
             for (int x = 0; x < listView1.Items.Count; x++)
             {
