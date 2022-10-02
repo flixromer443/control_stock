@@ -1,6 +1,7 @@
 ﻿using control_stock.DTO;
 using control_stock.services.producto_service;
 using control_stock.util;
+using control_stock.util.productos;
 
 namespace control_stock
 {
@@ -8,8 +9,8 @@ namespace control_stock
     {
         private ProductoDTO productoSeleccionado;
         private int unidadesSeleccionadas = 1;
-        private GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
-        private ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
+        private ProductoDAOImpl productoService = new ProductoDAOImpl();
         private ProductosUtil productosUtil = new ProductosUtil();
 
         public ProductoDTO ProductoSeleccionado { get => productoSeleccionado; set => productoSeleccionado = value; }

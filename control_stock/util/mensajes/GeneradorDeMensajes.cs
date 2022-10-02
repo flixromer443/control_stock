@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace control_stock.util
 {
-    internal class GenerardorDeMensajes
+    internal class GeneradorDeMensajes
     {
         public void generarMensaje(string mensaje, MessageBoxButtons messageBoxButtons, MessageBoxIcon messageBoxIcon)
         {

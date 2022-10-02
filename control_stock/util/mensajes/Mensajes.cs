@@ -17,7 +17,8 @@ namespace control_stock.util
         public static string PRODUCTO_VENDIDO = "Se ha actulizado el stock de este producto.";
         public static string PRODUCTO_SIN_STOCK = "El producto seleccionado no cuenta con stock.";
         public static string CATEGORIA_VACIA = "Esta lista de productos se encuentra vacia.";
-
+        public static string VENDER_CARRITO = "Desea confirmar esta venta?";
+        public static string CARRITO_VENDIDO = "Operacion exitosa, se ha actualizado el stock";
 
         public static string ERROR_CADENAS = "Error, el uso de caracteres especiales no esta permitido.";
 
@@ -25,7 +26,7 @@ namespace control_stock.util
         public static string ERROR_PRECIO_COMPRA = "Error, el campo precio compra no es valido o se encuentra vacio.";
         public static string ERROR_PRECIO_VENTA = "Error, el campo precio venta no es valido o se encuentra vacio.";
         public static string ERROR_STOCK = "Error, el campo stock venta no es valido o se encuentra vacio.";
-
+        public static string ERROR_UNIDADES = "La cantidad de unidades seleccionadas supera el stock de este producto. ";
 
 
 

@@ -1,6 +1,9 @@
-﻿using control_stock.DTO;
+﻿using control_stock.DAO.ventas;
+using control_stock.DTO;
+using control_stock.screens;
 using control_stock.services.producto_service;
 using control_stock.util;
+using control_stock.util.fecha;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +23,11 @@ namespace control_stock
         private string categoriaNombre;
         
         private ProductoDTO productoSeleccionado = new ProductoDTO();
-        private GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+        private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductosUtil productosUtil = new ProductosUtil();
 
-        private readonly ProductoServiceImpl productoService = new ProductoServiceImpl();
+        private readonly ProductoDAOImpl productoService = new ProductoDAOImpl();
+        private readonly VentaDAOImpl ventaService = new VentaDAOImpl();
 
         public categoria()
         {
@@ -184,12 +188,6 @@ namespace control_stock
             }
             
         }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void abrirCarritoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Carrito carrito = new Carrito();
@@ -197,8 +195,22 @@ namespace control_stock
             refrescarDataGridView(productoService.findByCategoriaId(CategoriaId));
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
+            List<ProductoDTO> productos = productoService.findByCategoriaId(categoriaId);
+            List<VentaDTO> ventas = ventaService.findByFecha(FechaUtil.obtenerFechaAcual());
+            if (productos.Count != 0)
+            {
+                GeneradorDeReportes generadorDeReportes = new GeneradorDeReportes();
+                generadorDeReportes.CategoriaNombre = categoriaNombre;
+                generadorDeReportes.Productos = productos;
+                generadorDeReportes.Ventas = ventas;
+                generadorDeReportes.ShowDialog();
+            }
+            else
+            {
+                generadorDeMensajes.generarMensaje(Mensajes.CATEGORIA_VACIA, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
     }

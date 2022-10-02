@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace control_stock.services.producto_service
 {
-    internal interface ArchivoService
+    internal interface ProductoDAO
     {
-        public List<string> extraerProductosPorCategoria(int productoId);
-        public List<string> extraerProductos();
-        
+        public void create(ProductoDTO producto);
+        public List<ProductoDTO> findByCategoriaId(int categoriaId);
+        public List<ProductoDTO> findAll();
     }
 }

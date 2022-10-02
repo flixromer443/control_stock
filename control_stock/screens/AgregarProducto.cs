@@ -1,6 +1,7 @@
 ﻿using control_stock.DTO;
 using control_stock.services.producto_service;
 using control_stock.util;
+using control_stock.util.productos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,8 +19,8 @@ namespace control_stock
     public partial class AgregarProducto : Form
     {
         private int categoriaId;
-        private ProductoServiceImpl productoService = new ProductoServiceImpl();
-        private GenerardorDeMensajes generadorDeMensajes = new GenerardorDeMensajes();
+        private ProductoDAOImpl productoService = new ProductoDAOImpl();
+        private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductosUtil productosUtil = new ProductosUtil();
 
         public AgregarProducto()
@@ -31,11 +32,7 @@ namespace control_stock
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //List<ProductoDTO> productos = productoService.findAll();
-            //ProductoDTO ultimoProducto = productos.Last();
-
             ProductoDTO nuevoProducto = new ProductoDTO();
-            //nuevoProducto.Id = ultimoProducto.Id + 1;
             nuevoProducto.CategoriaId = categoriaId;
             nuevoProducto.Descripcion = textBox1.Text;
             nuevoProducto.PrecioCompra = textBox2.Text;

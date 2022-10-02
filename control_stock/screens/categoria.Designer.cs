@@ -34,11 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(categoria));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -54,6 +49,11 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,41 +110,6 @@
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // id
-            // 
-            this.id.HeaderText = "codigo";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.Width = 150;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "descripcion";
-            this.descripcion.MinimumWidth = 8;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.Width = 400;
-            // 
-            // precio_compra
-            // 
-            this.precio_compra.HeaderText = "precio_compra";
-            this.precio_compra.MinimumWidth = 8;
-            this.precio_compra.Name = "precio_compra";
-            this.precio_compra.Width = 150;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.HeaderText = "precio_venta";
-            this.precio_venta.MinimumWidth = 8;
-            this.precio_venta.Name = "precio_venta";
-            this.precio_venta.Width = 150;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "stock";
-            this.stock.MinimumWidth = 8;
-            this.stock.Name = "stock";
-            this.stock.Width = 150;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Yellow;
@@ -190,7 +155,6 @@
             this.label7.Size = new System.Drawing.Size(295, 70);
             this.label7.TabIndex = 20;
             this.label7.Text = "PRODUCTOS";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
             // 
@@ -245,8 +209,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(236, 44);
             this.button6.TabIndex = 25;
-            this.button6.Text = "GENERAR REPORTE";
+            this.button6.Text = "GENERAR REPORTES";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // menuStrip1
             // 
@@ -301,6 +266,41 @@
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
+            // id
+            // 
+            this.id.HeaderText = "codigo";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.Width = 150;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "descripción";
+            this.descripcion.MinimumWidth = 8;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Width = 400;
+            // 
+            // precio_compra
+            // 
+            this.precio_compra.HeaderText = "precio_compra";
+            this.precio_compra.MinimumWidth = 8;
+            this.precio_compra.Name = "precio_compra";
+            this.precio_compra.Width = 150;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.HeaderText = "precio_venta";
+            this.precio_venta.MinimumWidth = 8;
+            this.precio_venta.Name = "precio_venta";
+            this.precio_venta.Width = 150;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "stock";
+            this.stock.MinimumWidth = 8;
+            this.stock.Name = "stock";
+            this.stock.Width = 150;
+            // 
             // categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -345,11 +345,6 @@
         private Button button3;
         private Label label7;
         private Label label9;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn descripcion;
-        private DataGridViewTextBoxColumn precio_compra;
-        private DataGridViewTextBoxColumn precio_venta;
-        private DataGridViewTextBoxColumn stock;
         private Label label8;
         private Button button4;
         private Button button5;
@@ -360,5 +355,10 @@
         private ToolStripMenuItem ayudaToolStripMenuItem;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn descripcion;
+        private DataGridViewTextBoxColumn precio_compra;
+        private DataGridViewTextBoxColumn precio_venta;
+        private DataGridViewTextBoxColumn stock;
     }
 }

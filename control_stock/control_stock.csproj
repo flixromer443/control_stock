@@ -9,18 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="config\control_stockV01.db" />
     <None Remove="control_stockV01.db" />
-    <None Remove="services\control_stockV01.db" />
-    <None Remove="services\producto_service\control_stockV01.db" />
+    <None Remove="DAO\control_stockV01.db" />
+    <None Remove="DAO\producto\control_stockV01.db" />
     <None Remove="System.Data.SQLite.dll" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="1486564177-finance-finance-calculator_81497(1).ico" />
-    <Content Include="control_stockV01.db">
+    <Content Include="config\control_stockV01.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="services\producto_service\control_stockV01.db">
+    <Content Include="control_stockV01.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
