@@ -37,6 +37,9 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printDialog2 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument3 = new System.Drawing.Printing.PrintDocument();
+            this.printDocument4 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // label1
@@ -101,6 +104,25 @@
             // 
             this.printDialog2.UseEXDialog = true;
             // 
+            // printPreviewDialog2
+            // 
+            this.printPreviewDialog2.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog2.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog2.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog2.Document = this.printDocument3;
+            this.printPreviewDialog2.Enabled = true;
+            this.printPreviewDialog2.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog2.Icon")));
+            this.printPreviewDialog2.Name = "printPreviewDialog2";
+            this.printPreviewDialog2.Visible = false;
+            // 
+            // printDocument3
+            // 
+            this.printDocument3.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirVentas);
+            // 
+            // printDocument4
+            // 
+            this.printDocument4.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirVentas);
+            // 
             // GeneradorDeReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -129,5 +151,8 @@
         private PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument2;
         private PrintDialog printDialog2;
+        private PrintPreviewDialog printPreviewDialog2;
+        private System.Drawing.Printing.PrintDocument printDocument3;
+        private System.Drawing.Printing.PrintDocument printDocument4;
     }
 }

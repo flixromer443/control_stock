@@ -21,7 +21,7 @@ namespace control_stock
         List<ProductoDTO> productos = new List<ProductoDTO>();
         private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
         private ProductoDAOImpl productoService = new ProductoDAOImpl();
-        private VentasDAOImpl ventasService = new VentasDAOImpl();
+        private VentaDAOImpl ventasService = new VentaDAOImpl();
         private CarritoUtil carritoUtil = new CarritoUtil();
         private int total;
         public Carrito()

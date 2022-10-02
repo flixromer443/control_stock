@@ -1,7 +1,9 @@
-﻿using control_stock.DTO;
+﻿using control_stock.DAO.ventas;
+using control_stock.DTO;
 using control_stock.screens;
 using control_stock.services.producto_service;
 using control_stock.util;
+using control_stock.util.fecha;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +27,7 @@ namespace control_stock
         private ProductosUtil productosUtil = new ProductosUtil();
 
         private readonly ProductoDAOImpl productoService = new ProductoDAOImpl();
+        private readonly VentaDAOImpl ventaService = new VentaDAOImpl();
 
         public categoria()
         {
@@ -195,11 +198,13 @@ namespace control_stock
         private void button6_Click(object sender, EventArgs e)
         {
             List<ProductoDTO> productos = productoService.findByCategoriaId(categoriaId);
+            List<VentaDTO> ventas = ventaService.findByFecha(FechaUtil.obtenerFechaAcual());
             if (productos.Count != 0)
             {
                 GeneradorDeReportes generadorDeReportes = new GeneradorDeReportes();
                 generadorDeReportes.CategoriaNombre = categoriaNombre;
                 generadorDeReportes.Productos = productos;
+                generadorDeReportes.Ventas = ventas;
                 generadorDeReportes.ShowDialog();
             }
             else
