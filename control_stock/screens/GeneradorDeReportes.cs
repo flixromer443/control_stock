@@ -17,16 +17,11 @@ namespace control_stock.screens
     {
         private ProductosUtil productosUtil = new ProductosUtil();
         private List<ProductoDTO> productos = new List<ProductoDTO>();
-        private List<ProductoDTO> listaDeProductos = new List<ProductoDTO>();
         private GeneradorDeMensajes generadorDeMensajes = new GeneradorDeMensajes();
-
-
 
         private string categoriaNombre;
         private int indice = 0;
         private int pagina = 1;
-
-
 
         public string CategoriaNombre { get => categoriaNombre; set => categoriaNombre = value; }
         public List<ProductoDTO> Productos { get => productos; set => productos = value; }
@@ -36,10 +31,11 @@ namespace control_stock.screens
             InitializeComponent();
         }
 
-        private void GeneradorDeReportes_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -48,20 +44,16 @@ namespace control_stock.screens
             
             if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
             {
-                //this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirStock);
                 printDocument1.Print();
-
             }
-            DialogResult response = generadorDeMensajes.generarMensaje("Deseas imprimir este documento?", MessageBoxIcon.Question);
-            if(response == DialogResult.OK)
+            indice = 0;
+            pagina = 1;
+            printDialog2.Document = printDocument2;
+            if(printDialog2.ShowDialog() == DialogResult.OK)
             {
-                indice = 0;
-                pagina = 1;
-                printDialog2.Document = printDocument2;
-                printDialog2.ShowDialog();
                 printDocument2.Print();
-
             }
+
         }
 
         private void imprimirStock(object sender, PrintPageEventArgs e)
@@ -101,10 +93,10 @@ namespace control_stock.screens
 
             int[] ejesYLV = { 160, 200 };
             //AMBOS EJES AUMENTAN DE 50 EN 50
-            while(indice < Productos.Count)
+            while(indice < 32)
             {
 
-                ProductoDTO producto = productos[indice];
+                ProductoDTO producto = productos[1];
 
                 //ITEMS = +20 ejesYLV
                 e.Graphics.DrawLine(pen, 60, ejesYLV[0], 60, ejesYLV[1]);
@@ -148,9 +140,6 @@ namespace control_stock.screens
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
