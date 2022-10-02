@@ -1,6 +1,8 @@
-﻿using control_stock.DTO;
+﻿using control_stock.DAO.ventas;
+using control_stock.DTO;
 using control_stock.services.producto_service;
 using control_stock.util;
+using control_stock.util.carrito;
 using control_stock.util.productos;
 
 namespace control_stock
@@ -47,7 +49,9 @@ namespace control_stock
 
             if (response == DialogResult.OK)
             {
-                productoService.updateStockProducto(productoSeleccionado.Id, unidadesSeleccionadas);
+                int stock = productoSeleccionado.Stock - unidadesSeleccionadas;
+
+                productoService.updateStockProducto(productoSeleccionado.Id, stock);
                 generadorDeMensajes.generarMensaje(Mensajes.PRODUCTO_VENDIDO, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
