@@ -35,6 +35,8 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog2 = new System.Windows.Forms.PrintDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -58,6 +60,7 @@
             this.button1.TabIndex = 27;
             this.button1.Text = "IMPRIMIR VENTAS";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button6
             // 
@@ -90,6 +93,14 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimirStock);
+            // 
+            // printDialog2
+            // 
+            this.printDialog2.UseEXDialog = true;
+            // 
             // GeneradorDeReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -116,5 +127,7 @@
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument2;
+        private PrintDialog printDialog2;
     }
 }
