@@ -78,10 +78,7 @@ namespace control_stock.services.producto_service
                 command.Parameters.Add(new SQLiteParameter("@DESCRIPCION", productoDTO.Descripcion));
                 command.Parameters.Add(new SQLiteParameter("@PRECIO_COMPRA", productoDTO.PrecioCompra));
                 command.Parameters.Add(new SQLiteParameter("@PRECIO_VENTA", productoDTO.PrecioVenta));
-
-                //no es lo ideal, ya lo se
-                int stock = (productoDTO.Stock < 1) ? 0 : productoDTO.Stock;
-                command.Parameters.Add(new SQLiteParameter("@STOCK", stock));
+                command.Parameters.Add(new SQLiteParameter("@STOCK", productoDTO.Stock));
 
                 command.ExecuteNonQuery();
             }
