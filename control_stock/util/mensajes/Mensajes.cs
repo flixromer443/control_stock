@@ -27,8 +27,7 @@ namespace control_stock.util
         public static string ERROR_PRECIO_VENTA = "Error, el campo precio venta no es valido o se encuentra vacio.";
         public static string ERROR_STOCK = "Error, el campo stock venta no es valido o se encuentra vacio.";
         public static string ERROR_UNIDADES = "La cantidad de unidades seleccionadas supera el stock de este producto. ";
-
-
+        public static string ERROR_FECHA = "Error, el campo fecha se encuentra vacio o no es valido.";
 
 
     }
