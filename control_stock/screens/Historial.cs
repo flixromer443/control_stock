@@ -57,7 +57,8 @@ namespace control_stock.screens
                 }
                 else
                 {
-                    string[] fecha = { textBox1.Text, "22:00:00" };
+                    string[] fecha = { FechaUtil.quitarCeros(textBox1.Text), "22:00:00" };
+                    
                     refrescarLabels(fecha);
                     refrescarDGW(fecha[0]);
                 }
@@ -145,7 +146,7 @@ namespace control_stock.screens
             if (pagina == 1)
             {
                 e.Graphics.DrawString("Fecha: ", fechaFont1, Brushes.Black, new RectangleF(60, 40, width, height));
-                e.Graphics.DrawString(fechaImpresion[0], fechaFont2, Brushes.Black, new RectangleF(110, 40, width, height));
+                e.Graphics.DrawString(FechaUtil.completarConCeros(fechaImpresion[0]), fechaFont2, Brushes.Black, new RectangleF(110, 40, width, height));
 
                 e.Graphics.DrawString("Hora: ", fechaFont1, Brushes.Black, new RectangleF(60, 60, width, height));
                 e.Graphics.DrawString(fechaImpresion[1].Substring(0, 5), fechaFont2, Brushes.Black, new RectangleF(110, 60, width, height));

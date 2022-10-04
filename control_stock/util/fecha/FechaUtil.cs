@@ -34,15 +34,14 @@ namespace control_stock.util.fecha
             return nuevaFecha.ToString();
         }
 
-        //OJO: no anda del todo bien.
         public static string quitarCeros(string fecha)
         {
             StringBuilder nuevaFecha = new StringBuilder();
             string[] diaMesyAnio = fecha.Split("/");
             for (int i = 0; i < 3; i++)
             {
-                _ = (diaMesyAnio[i].Length == 2 && diaMesyAnio[i][1] == 0) ? nuevaFecha.Append(diaMesyAnio[i][1])
-                                                                           : nuevaFecha.Append(diaMesyAnio[i]);
+                _ = (diaMesyAnio[i].Length == 2 && int.Parse(diaMesyAnio[i]) < 10) ? nuevaFecha.Append(diaMesyAnio[i][1])
+                                                                                   : nuevaFecha.Append(diaMesyAnio[i]);
                 if (i < 2) nuevaFecha.Append("/");
             }
             return nuevaFecha.ToString();
