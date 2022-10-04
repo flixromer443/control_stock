@@ -85,11 +85,8 @@ namespace control_stock
 
                 if (response == DialogResult.OK)
                 {
-                    List<ProductoDTO> productosDTO = carritoUtil.cargarListaParaActualizarStock(listView1, Productos);
-                    List<VentaDTO> ventasDTO  = carritoUtil.cargarListaParaCargarVentas(listView1, productosDTO);
-                   
-                    productoService.update(productosDTO);
-                    ventasService.cargarVentas(ventasDTO);
+                    productoService.update(carritoUtil.cargarListaParaActualizarStock(listView1, Productos));
+                    ventasService.cargarVentas(carritoUtil.cargarListaParaCargarVentas(listView1, Productos));
                     generadorDeMensajes.generarMensaje(Mensajes.CARRITO_VENDIDO, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
