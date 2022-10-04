@@ -1,4 +1,5 @@
 using control_stock.DTO;
+using control_stock.screens;
 
 namespace control_stock
 {
@@ -46,6 +47,12 @@ namespace control_stock
         {
             Carrito carrito = new Carrito();
             carrito.ShowDialog();
+        }
+
+        private void historialDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Historial historial = new Historial();
+            historial.ShowDialog();
         }
     }
 }
