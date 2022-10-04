@@ -91,7 +91,7 @@ namespace control_stock.screens
             {
                 string[] fechaYhora = DateTime.Now.ToString().Split(" ");
                 e.Graphics.DrawString("Fecha: ", fechaFont1, Brushes.Black, new RectangleF(60, 40, width, height));
-                e.Graphics.DrawString(FechaUtil.completarConCeros(fechaYhora[0]), fechaFont2, Brushes.Black, new RectangleF(110, 40, width, height));
+                e.Graphics.DrawString(fechaYhora[0], fechaFont2, Brushes.Black, new RectangleF(110, 40, width, height));
 
                 e.Graphics.DrawString("Hora: ", fechaFont1, Brushes.Black, new RectangleF(60, 60, width, height));
                 e.Graphics.DrawString(fechaYhora[1].Substring(0, 5), fechaFont2, Brushes.Black, new RectangleF(110, 60, width, height));
@@ -175,7 +175,7 @@ namespace control_stock.screens
             {
                 string[] fechaYhora = DateTime.Now.ToString().Split(" ");
                 e.Graphics.DrawString("Fecha: ", fechaFont1, Brushes.Black, new RectangleF(60, 40, width, height));
-                e.Graphics.DrawString(FechaUtil.completarConCeros(fechaYhora[0]), fechaFont2, Brushes.Black, new RectangleF(110, 40, width, height));
+                e.Graphics.DrawString(fechaYhora[0], fechaFont2, Brushes.Black, new RectangleF(110, 40, width, height));
 
                 e.Graphics.DrawString("Hora: ", fechaFont1, Brushes.Black, new RectangleF(60, 60, width, height));
                 e.Graphics.DrawString(fechaYhora[1].Substring(0, 5), fechaFont2, Brushes.Black, new RectangleF(110, 60, width, height));
