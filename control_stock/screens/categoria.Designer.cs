@@ -34,6 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(categoria));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -49,11 +54,7 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historialDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,6 +110,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(1064, 345);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "codigo";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.Width = 150;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "descripción";
+            this.descripcion.MinimumWidth = 8;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Width = 400;
+            // 
+            // precio_compra
+            // 
+            this.precio_compra.HeaderText = "precio_compra";
+            this.precio_compra.MinimumWidth = 8;
+            this.precio_compra.Name = "precio_compra";
+            this.precio_compra.Width = 150;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.HeaderText = "precio_venta";
+            this.precio_venta.MinimumWidth = 8;
+            this.precio_venta.Name = "precio_venta";
+            this.precio_venta.Width = 150;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "stock";
+            this.stock.MinimumWidth = 8;
+            this.stock.Name = "stock";
+            this.stock.Width = 150;
             // 
             // button1
             // 
@@ -228,7 +264,8 @@
             // abrirCarritoToolStripMenuItem
             // 
             this.abrirCarritoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.abrirCarritoToolStripMenuItem1});
+            this.abrirCarritoToolStripMenuItem1,
+            this.historialDeVentasToolStripMenuItem});
             this.abrirCarritoToolStripMenuItem.Name = "abrirCarritoToolStripMenuItem";
             this.abrirCarritoToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.abrirCarritoToolStripMenuItem.Text = "Opciones";
@@ -236,7 +273,7 @@
             // abrirCarritoToolStripMenuItem1
             // 
             this.abrirCarritoToolStripMenuItem1.Name = "abrirCarritoToolStripMenuItem1";
-            this.abrirCarritoToolStripMenuItem1.Size = new System.Drawing.Size(208, 34);
+            this.abrirCarritoToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.abrirCarritoToolStripMenuItem1.Text = "Abrir carrito";
             this.abrirCarritoToolStripMenuItem1.Click += new System.EventHandler(this.abrirCarritoToolStripMenuItem1_Click);
             // 
@@ -266,40 +303,12 @@
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
-            // id
+            // historialDeVentasToolStripMenuItem
             // 
-            this.id.HeaderText = "codigo";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.Width = 150;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "descripción";
-            this.descripcion.MinimumWidth = 8;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.Width = 400;
-            // 
-            // precio_compra
-            // 
-            this.precio_compra.HeaderText = "precio_compra";
-            this.precio_compra.MinimumWidth = 8;
-            this.precio_compra.Name = "precio_compra";
-            this.precio_compra.Width = 150;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.HeaderText = "precio_venta";
-            this.precio_venta.MinimumWidth = 8;
-            this.precio_venta.Name = "precio_venta";
-            this.precio_venta.Width = 150;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "stock";
-            this.stock.MinimumWidth = 8;
-            this.stock.Name = "stock";
-            this.stock.Width = 150;
+            this.historialDeVentasToolStripMenuItem.Name = "historialDeVentasToolStripMenuItem";
+            this.historialDeVentasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.historialDeVentasToolStripMenuItem.Text = "Historial de ventas";
+            this.historialDeVentasToolStripMenuItem.Click += new System.EventHandler(this.historialDeVentasToolStripMenuItem_Click);
             // 
             // categoria
             // 
@@ -360,5 +369,6 @@
         private DataGridViewTextBoxColumn precio_compra;
         private DataGridViewTextBoxColumn precio_venta;
         private DataGridViewTextBoxColumn stock;
+        private ToolStripMenuItem historialDeVentasToolStripMenuItem;
     }
 }

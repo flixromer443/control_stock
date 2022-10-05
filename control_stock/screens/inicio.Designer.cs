@@ -39,6 +39,7 @@
             this.abrirCarritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirCarritoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +124,8 @@
             // abrirCarritoToolStripMenuItem
             // 
             this.abrirCarritoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.abrirCarritoToolStripMenuItem1});
+            this.abrirCarritoToolStripMenuItem1,
+            this.historialDeVentasToolStripMenuItem});
             this.abrirCarritoToolStripMenuItem.Name = "abrirCarritoToolStripMenuItem";
             this.abrirCarritoToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.abrirCarritoToolStripMenuItem.Text = "Opciones";
@@ -131,7 +133,7 @@
             // abrirCarritoToolStripMenuItem1
             // 
             this.abrirCarritoToolStripMenuItem1.Name = "abrirCarritoToolStripMenuItem1";
-            this.abrirCarritoToolStripMenuItem1.Size = new System.Drawing.Size(208, 34);
+            this.abrirCarritoToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.abrirCarritoToolStripMenuItem1.Text = "Abrir carrito";
             this.abrirCarritoToolStripMenuItem1.Click += new System.EventHandler(this.abrirCarritoToolStripMenuItem1_Click);
             // 
@@ -140,6 +142,13 @@
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // historialDeVentasToolStripMenuItem
+            // 
+            this.historialDeVentasToolStripMenuItem.Name = "historialDeVentasToolStripMenuItem";
+            this.historialDeVentasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.historialDeVentasToolStripMenuItem.Text = "Historial de ventas";
+            this.historialDeVentasToolStripMenuItem.Click += new System.EventHandler(this.historialDeVentasToolStripMenuItem_Click);
             // 
             // inicio
             // 
@@ -177,5 +186,6 @@
         private ToolStripMenuItem abrirCarritoToolStripMenuItem;
         private ToolStripMenuItem abrirCarritoToolStripMenuItem1;
         private ToolStripMenuItem ayudaToolStripMenuItem;
+        private ToolStripMenuItem historialDeVentasToolStripMenuItem;
     }
 }

@@ -213,5 +213,11 @@ namespace control_stock
             }
 
         }
+
+        private void historialDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Historial historial = new Historial();
+            historial.ShowDialog();
+        }
     }
 }
