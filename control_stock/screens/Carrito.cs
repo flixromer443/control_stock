@@ -115,5 +115,16 @@ namespace control_stock
 
         }
 
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult response = generadorDeMensajes.generarMensaje(Mensajes.QUITAR_PRODUCTO,MessageBoxIcon.Question);
+            if (response == DialogResult.OK)
+            {
+                total = carritoUtil.quitarProductoYActualizarTotal(listView1, Productos, total);
+                label4.Text = "$" + total.ToString();
+
+            }
+           
+        }
     }
 }

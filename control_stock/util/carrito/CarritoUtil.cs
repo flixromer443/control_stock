@@ -125,5 +125,25 @@ namespace control_stock.util.carrito
             }
             return lista;
         }
+        //quita producto del listview
+        public int quitarProductoYActualizarTotal(ListView listView1, List<ProductoDTO> productos, int total)
+        {
+            int indice = listView1.SelectedItems[0].Index;
+
+            int productoId = int.Parse(listView1.Items[indice].SubItems[0].Text);
+            int productoUnidades = int.Parse(listView1.Items[indice].SubItems[2].Text);
+
+            for (int i = 0; i < productos.Count; i++)
+            {
+                ProductoDTO producto = productos[i];
+                if (producto.Id == productoId)
+                {
+                    listView1.Items[indice].Remove();
+                    total -= int.Parse(producto.PrecioVenta) * productoUnidades;
+                    return total;
+                }
+            }
+            return 0;
+        }
     }
 }
